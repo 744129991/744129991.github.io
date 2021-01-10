@@ -1,0 +1,836 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#DF7401">
+  <meta name="description" content="">
+  <meta name="author" content="744129991">
+  <meta name="keywords" content="">
+  <title>选择结构 分支结构 循环结构 方法 数组 面向对象 关键字 - Sea</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"744129991.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#DF7401","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>sea</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="选择结构 分支结构 循环结构 方法 数组 面向对象 关键字">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-10 22:04" pubdate>
+        2021年1月10日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      4.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      61
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">选择结构 分支结构 循环结构 方法 数组 面向对象 关键字</h1>
+            
+            <div class="markdown-body">
+              <p>##一、选择结构与分支结构<br>概念：<br>根据已知条件‘进行逻辑判断，满足条件后执行相应操作;<br>#1.1基本if选择结构<br>语法：if(布尔表达式){<br>//代码块<br>}<br>//后续代码…..<br>执行流程：<br>对布尔表达式进行判断；<br>结果为true，则先执行代码块，再执行后续代码；<br>结果为false，则跳过代码块，直接执行后续代码；<br>#1.2if else选择结构<br>if(布尔表达式){<br> //代码块1<br>}else{<br> //代码块2<br>}<br>执行流程：<br>对布尔表达式进行判断；<br>结果为true，则先执行代码块1，再退出整个结构，执行后续代码；<br>结构为false，则先执行代码块2，再退出整个结构，执行后续代码；<br>#1.3多重if选择结构<br>if(布尔表达式1){<br>//代码块1<br>}else if(布尔表达式2){<br>//代码块2<br>}else if(布尔表达式3){<br>//代码块3<br>}else{<br>//代码块4<br>}<br>执行流程：<br>表达式1为true时，则执行代码块1，再退出整个结构；<br>表达式2为true时，则执行代码块2，再退出整个结构；<br>表达式3为true时，则执行代码块3，再退出整个结构；<br>以上均为false时，则执行代码块4，再退出整个结构；<br>注意：<br>相互排斥，有一个为true，其它均不再执行，适用于区间判断（区间条件，遵循从大到小或从小到大）；<br>#1.4嵌套if选择结构<br>if(外层表达式){<br> if(内层表达式){<br>  //内层代码块1<br> }else{<br>  //内层代码块2<br> }<br>}else{<br>//外层代码块<br>}<br>执行流程：<br>当外层条件满足时，再判断内层条件；<br>注意：<br>一个选择结构中，可以嵌套另一个选择结构；<br>嵌套格式正确的情况下，支持任意组合；<br>#举例<br>需求:</p>
+<ul>
+<li><pre><code>     键盘录入三个数据,求最大值(int类型)</code></pre>
+</li>
+<li></li>
+<li><pre><code>    两种方案</code></pre>
+</li>
+<li><pre><code>     1)使用三元运算符去完成</code></pre>
+</li>
+<li><pre><code>     2)使用if格式2的嵌套</code></pre>
+</li>
+</ul>
+<p>import  java.util.Scanner ;<br>public class IfTest2 {<br>    public static void main(String[] args){</p>
+<pre><code>    //创建键盘录入对象
+    Scanner sc = new Scanner(System.in);
+
+    //提示并录入数据
+    System.out.println(&quot;请您输入第一个数据:&quot;) ;
+    int a = sc.nextInt() ;
+
+    System.out.println(&quot;请您输入第二个数据:&quot;) ;
+    int b = sc.nextInt() ;
+
+    System.out.println(&quot;请您输入第三个数据:&quot;) ;
+    int c = sc.nextInt() ;
+     //方案1:
+    //三元运输符 (表达式)? 执行true的结果:执行false的结果
+    //使用中间变量
+    int temp = (a&gt; b) ? a: b ;
+    //定义结果变量
+    int max = (temp &gt; c)? temp :c ;
+    System.out.println (&quot;三个数据中的最大值是:&quot;+max) ;
+
+    System.out.println(&quot;---------------------------------------&quot;) ;
+
+    //方式2:if格式2的嵌套 (不推荐的)
+    //定义变量max2
+    int max2 ;
+    if(a &gt; b)&#123;
+        //使用a和c进行对比
+        if(a&gt; c)&#123;
+           max2 = a ;
+        &#125;else&#123;
+           max2 = c ;
+        &#125;
+
+    &#125;else &#123;
+        //b大
+        if(b &gt; c)&#123;
+            max2 = b ;
+        &#125;else&#123;
+            max2 = c ;
+        &#125;
+
+    &#125;
+
+    System.out.println(&quot;三个数据中的最大值是:&quot;+max2) ;
+
+&#125;</code></pre>
+<p>}<br>#1.5switch分支结构<br>switch(变量|表达式){<br> case  值1:<br>  逻辑代码1;<br> case  值2:<br>  逻辑代码2;<br> case  值n:<br>  逻辑代码n;<br> default:<br>  未满足时的逻辑代码;<br>}</p>
+<p>可判断的类型：<br>byte、short、int、char、String(JDK7+)<br>执行流程：<br>如果变量中的值等于值1，则执行逻辑代码1；<br>如果变量中的值等于值2，则执行逻辑代码2；<br>如果变量中的值等与值n，则执行逻辑代码n；<br>如果变量中的值没有匹配的case值时，执行default中的逻辑代码；</p>
+<p>注意：</p>
+<p>所有case的取值不可相同；<br>程序演示：</p>
+<p>import  java.util.Scanner  ;<br>public class SwitchDemo {</p>
+<pre><code>public static void main(String[] args)&#123;
+
+    //创建键盘录入数据
+    Scanner sc = new Scanner(System.in) ;
+
+    //提示并录入数据
+    System.out.println(&quot;请您输入一个int数据:&quot;);
+    int week = sc.nextInt() ;
+
+     switch (week)&#123;
+
+        case 1 :
+            System.out.println(&quot;星期一&quot;);
+            break ;
+        case 2 :
+            System.out.println(&quot;星期二&quot;);
+            break ;
+        case 3 :
+            System.out.println(&quot;星期三&quot;);
+            break ;
+        case 4 :
+            System.out.println(&quot;星期四&quot;);
+            break ;
+        case 5 :
+            System.out.println(&quot;星期五&quot;);
+            break ;
+        case 6 :
+            System.out.println(&quot;星期六&quot;);
+            break ;
+        case 7 :
+            System.out.println(&quot;星期日&quot;);
+            break ;
+        default:
+            System.out.println(&quot;您输入的数据不合法&quot;);
+            break ;
+
+    &#125;
+
+
+&#125;</code></pre>
+<p>}<br>注意：<br>当匹配的case被执行后，并不会自动退出整个结构，而是继续向下执行；<br>break关键字可以在匹配的case执行后，直接跳出整个结构；<br>##二、循环结构<br>for(初始化语句;条件判断语句;步长语句(控制体语句)){</p>
+<pre><code>  循环体语句;</code></pre>
+<p>  }<br>   流程:<br>  1)先执行初始化语句对变量进行赋值(只执行一次)<br>  2)判断条件语句是否成立,如果成立,执行  循环体语句<br>  3)执行步长语句(++,–)<br>  4)继续判断条件是否成立,如果还成立, 执行  循环体语句<br>  5)继续执行步长语句(++,–)<br>  …<br>  …<br>  n)当前条件不成立,for循环结束<br>  举例<br>  需求:</p>
+<ul>
+<li> 1)控制台输出1-10之间的数据</li>
+<li> 2)求出1-10之间和</li>
+<li> 3)1-100之间的数据之和</li>
+</ul>
+<p>public class ForDemo {<br>    public static void main(String[] args){<br>for(int x = 1 ; x &lt;= 10 ; x ++){<br>    System.out.println(x) ;<br>       }<br>//1-10之间的数据获取<br>int sum = 0 ;<br>for(int x = 1 ; x &lt;= 10 ; x ++){<br>   sum += x ; //sum = sum + x ;</p>
+<pre><code>  &#125;</code></pre>
+<p>System.out.println(“1-10之间的数据和是:”+sum);<br>  }<br>}<br>#2.2while循环语句<br>  while(条件表达式){<br>          循环体语句;<br>          控制体/步长语句;<br>      }<br>      扩展格式：<br>初始化语句;<br>while(条件判断语句){<br>循环体语句;<br>控制体/步长语句;<br>}<br>流程:<br>初始化语句执行一次<br>判断条件是否成立,成立,则执行循环体,再依次执行步长语句;<br>…<br>如果不成立,while循环语句结束!<br>举例<br>//需求:键盘不断录入数据,玩猜数字小游戏! (1-100之间的数据)</p>
+<p>//分析:<br>//1)使用Math类的 random方法产生一个1-100之间的随机数 (要猜的数据)<br>//2)创建键盘录入对象,录入数据<br>//3)录入的数据和当前产生的随机数据的进行比较,<br>//4)如果大了,提示大了<br>//小了,提示小了<br>//相等,猜中了</p>
+<p>//break:switch语句中,循环语句中使用</p>
+<p>//产生一个1-100之间的随机数<br>int num = (int)(Math.random()*100+1) ;</p>
+<p>while(true){<br>    //导包<br>    //创建键盘录入对象<br>    Scanner sc = new Scanner(System.in) ;</p>
+<pre><code>//提示并录入数据
+System.out.println(&quot;请您输入1-100之间的数字:&quot;) ;
+int guessNumber = sc.nextInt() ;
+
+if(guessNumber&gt; num)&#123;
+    System.out.println(&quot;您要猜的数字大了!&quot;);
+&#125;else if(guessNumber &lt; num)&#123;
+    System.out.println(&quot;您要猜的数字小了!&quot;) ;
+&#125;else&#123;
+    System.out.println(&quot;恭喜您,猜中了!&quot;) ;
+    break ; //中断循环,否则死循环...
+&#125;</code></pre>
+<p>}<br>需求:</p>
+<ul>
+<li><pre><code>输出所有的水仙花数</code></pre>
+</li>
+<li><pre><code>统计所有的水仙花数</code></pre>
+</li>
+</ul>
+<p>public class WhileDemo {</p>
+<pre><code>public static void main(String[] args)&#123;
+ //输出所有的水仙花数
+    //初始化语句
+    int j = 100 ;
+    while(j&lt;1000)&#123;
+        //定义三个变量:ge shi bai
+        int ge = j % 10 ;
+        int shi = j /10 % 10 ;
+        int bai = j /10 /10 % 10 ;
+
+        if(j == (ge*ge*ge+shi*shi*shi+bai*bai*bai))&#123;
+            //输出
+            System.out.println(j)  ;
+         &#125;
+
+        j ++ ;
+    &#125;
+
+
+    System.out.println(&quot;-----------------------------------&quot;) ;
+
+    //统计水仙花
+    //定义统计变量
+    int count = 0 ;
+    //初始化语句
+    int i = 100 ;
+    while(i&lt;=999)&#123;
+
+        //定义三个变量:ge shi bai
+        int ge = i % 10 ;
+        int shi = i /10 % 10 ;
+        int bai = i /10 /10 % 10 ;
+
+        if(i == (ge*ge*ge+shi*shi*shi+bai*bai*bai))&#123;
+            //统计变量++
+            count ++ ;
+        &#125;
+
+        //步长语句
+        i ++;
+
+    &#125;
+
+    System.out.println(&quot;水仙花是共有:&quot;+count+&quot;个&quot;);
+
+
+&#125;</code></pre>
+<p>}</p>
+<p>while和for的区别<br>1)格式不同<br>2) 并且从内存角度考虑:<br>for循环的 格式: for循环语句外面不能够访问变量的,因为它随着for循环执行完毕,main方法结束之后,变量就会被GC(垃圾回收器)回收掉这些变量<br>while循环的扩展格式:循环结束,依然可以访问变量; 在内存中占用资源空间大于for循环<br>3)如果明确循环次数,优先使用for<br>不明确循环次数,使用while循环<br>#2.4do-while循环<br>初始化语句;<br>do{<br>循环体语句;<br>步长语句/控制体语句;<br>}while(条件表达式) ;<br>流程:<br>初始化语句执行一次,对变量进行赋值<br>执行循环体语句,<br>执行步长语句(++或者–)<br>判断while后的条件是否成立,成立,继续执行循环体语句…<br>不成立,语句结束!</p>
+<p>do-while循环和for循环以及while循环的最大的区别就是:循环体至少执行一次!<br>举例<br>public class DoWhileDemo {<br>    public static void main(String[] args){</p>
+<pre><code>    //控制台输出5次&quot;helloworld&quot;
+   // int i = 1 ;
+    int i = 6 ;
+    do&#123;
+        System.out.println(&quot;helloworld&quot;) ;
+        i++;
+    &#125;while(i&lt;=5) ;
+&#125;</code></pre>
+<p>}<br>#2.5forfor循环嵌套<br>for循环嵌套<br>      for(初始化语句;条件表达式;步长语句){</p>
+<pre><code>      //内层循环是外层循环的循环体语句
+      for(初始化语句;条件表达式;步长语句)&#123;
+              循环体语句;
+
+      &#125;
+  &#125;
+  注意：</code></pre>
+<p>将内层循环看成是外层循环的循环体语句;<br>举例<br>需求:<br>  控制台输出<em>形(4行5列的</em>)<br>      <strong><strong>*<br>      *</strong></strong><br>      <strong><strong>*<br>      *</strong></strong><br>public class ForForDemo {<br>    public static void main(String[] args){<br>  for(int x = 0; x &lt; 4 ; x ++ ){//x =0 ,1,2,3  //控制行数</p>
+<pre><code>        for(int y = 0 ; y &lt; 5; y++)&#123;//y =0,1,2,3,4 //控制列数
+            System.out.print(&quot;*&quot;) ;
+        &#125;
+        System.out.println() ;
+    &#125;
+
+
+
+&#125;</code></pre>
+<p>}</p>
+<p>##三、方法<br>3.1.1有具体返回值(数据类型)的方法<br>                                                //  形式参数列表<br>权限修饰符 + 静态修饰符 + 具体的返回值类型 + 方法名(数据类型1 变量名1 ,<br>数据类型2 变量名2 ,….){<br>              //方法体<br>              return 结果;<br>        }<br> 3.1.2没有具体返回值类型的方法     </p>
+<ul>
+<li><pre><code>     权限修饰符+静态修饰符+返回值类型 +方法名(形参列表)&#123;</code></pre>
+</li>
+<li><pre><code>                  没有return 语句 ;</code></pre>
+</li>
+<li><pre><code>                  直接完成输出操作</code></pre>
+</li>
+<li></li>
+<li><pre><code>     &#125;</code></pre>
+定义方法有两个明确:</li>
+</ul>
+<p>1.明确放回值类型<br>2.明确参数类型和个数<br>3.2如何调用方法<br>调用方法:<br>1)单独调用:(没有输出)没有意义<br>2)输出调用:输出:写死了,不利于值的进一步操作<br>3)赋值调用(推荐)<br>3.3方法的重载<br>概念：<br>多个方法的方法名相同,参数列表不同,与返回值无关 —将这些方法称为”方法重载”<br>参数列表不同有两种情况<br>1)参数个数不同 (参数类型一致)<br>2)参数类型不一致(参数个数一致)<br>         public static float sum(float a,float b) {}<br>         public static float sum(int a,float b){}<br>         public static int  sum(int a,int b){}<br>         public static double sum(double a,double b,double c)<br>         public static int add(int a,float b)<br>         public static int add(float a ,int b)</p>
+<p>##四·数组<br>4.1数组概述<br>数组概念<br>数组是存储同一种数据类型多个元素的集合。也可以看成是一个容器。<br>数组既可以存储基本数据类型，也可以存储引用数据类型。<br>数组定义的格式</p>
+<p>格式1：数据类型[] 数组名;<br>格式2：数据类型 数组名[];<br>4.2数组的初始化<br>数组初始化概述：<br>Java中的数组必须先初始化,然后才能使用。<br>所谓初始化：就是为数组中的数组元素分配内存空间，并为每个数组元素赋值。<br>数组的初始化方式：<br>动态初始化：初始化时只指定数组长度，由系统为数组分配初始值。<br>静态初始化：初始化时指定每个数组元素的初始值，由系统决定数组长度。<br>动态初始化<br>动态初始化初始化时只指定数组长度，由系统为数组分配初始值<br>格式：<br>数据类型[] 数组名 = new 数据类型[数组长度];<br>数组长度其实就是数组中元素的个数。</p>
+<p>int[] arr = new int[3];</p>
+<p>解释：定义了一个int类型的数组，这个数组中可以存放3个int类型的值。<br>静态初始化<br>静态初始化初始化时指定每个数组元素的初始值，由系统决定数组长度。<br>格式：<br>数据类型[] 数组名 = new 数据类型[]{元素1,元素2,…};</p>
+<p>int[] arr = new int[]{1,2,3};<br>解释：定义了一个int类型的数组，这个数组中可以存放3个int类型的值，并且值分别是1,2,3。<br>其实这种写法还有一个简化的写法<br>int[] arr = {1,2,3};<br>便利数组<br>//给int[]a={15,20,25,56,78,89,65};进行遍历,格式优雅<br>public class Demo {<br>    public static void main(String[] args){<br>        int[] a={15,20,25,56,78,89,65};<br>        System.out.print(“[“);//先输出左中括号”[“不换行<br>         //将元素的内容先获取到<br>        for(int i=0;i&lt;a.length;i++){ //i:数组中角标值(索引值)<br>            //需要判断元素是否为最后一个<br>            if (i==a.length-1){// 如果是最大角标值 a.length-1<br>                System.out.println(a[i]+”]”);<br>            }else{//表示是中间的元素,拼接逗号和空格,不能换行<br>                System.out.print(a[i]+”, “);<br>            }<br>        }<br>    }<br>}</p>
+<h2 id="求数组的最值问题"><a href="#求数组的最值问题" class="headerlink" title="求数组的最值问题```"></a>求数组的最值问题```</h2><p>```java<br>//定义一个数组,静态初始化 int[] arr = {12,87,69,24,65};<br>//使用方法得到最值<br>public class Demo1 {<br>   public static  void main(String[] args){<br>       int[] arr = {12,87,69,24,65};<br>       int max = max(arr);<br>        System.out.println(“最大值是:”+max);<br>        System.out.println(“———————“);<br>       int min = min(arr);<br>       System.out.println(“最小值是:”+min);</p>
+<p>   }<br>    public static int max(int arr[]){<br>       int max=arr[0];<br>       for(int i=1;i&lt;arr.length;i++){<br>           if(arr[i]&gt;max){<br>            max = arr[i];<br>           }<br>       }<br>       return max;<br>    }<br>    public static int min(int arr[]){<br>        int min=arr[0];<br>        for(int i=1;i&lt;arr.length;i++){<br>            if(arr[i]&lt;min){<br>                min = arr[i];<br>            }<br>        }<br>        return min;<br>    }</p>
+<p>}</p>
+<p>数组的逆序</p>
+<p>//给定一个数组，把这个数组中所有元素顺序进行颠倒。（静态初始化）int arr[]={66,78,95,5,68,105}<br>public class test2 {<br>    public static  void main(String[] args){<br>        int arr[]={66,78,95,5,68,105};</p>
+<pre><code>    System.out.println(&quot;逆序前:&quot;);
+    zx(arr);
+    System.out.println(&quot;逆序后:&quot;);
+    nx(arr);
+    zx(arr);
+
+&#125;
+public static void zx(int arr[])&#123;
+    System.out.print(&quot;[&quot;);
+    for(int x = 0;x&lt;arr.length;x++)&#123;
+        if(x==arr.length-1)&#123;
+            System.out.println(arr[x]+&quot;]&quot;);
+        &#125;else &#123;
+            System.out.print(arr[x]+&quot;, &quot;);
+        &#125;
+    &#125;
+&#125;
+public static void nx(int arr[])&#123;
+    for (int start=0,end =arr.length-1;start&lt;end;start++,end--)&#123;
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+    &#125;
+&#125;</code></pre>
+<p>}<br>查询数组索引值<br>//int[] arr = {10,55,30,24,17} ;查询30这个元素第一次在数组中出现的索引,查询元素使用功能完成!<br>public class test4 {<br>    public static void main(String[] args){<br>        int[] arr = {10,55,30,24,17} ;<br>        int key=jb(arr,17);<br>        System.out.println(“角标是:”+key);</p>
+<pre><code>&#125;
+public static int jb(int arr[],int key)&#123;
+    for(int x =0;x&lt;arr.length;x++)&#123;
+        if (key == arr[x])&#123;
+            return x;
+
+        &#125;
+    &#125;
+    return -1;
+&#125;</code></pre>
+<p>}<br>数组之冒泡排序<br>public class tset1 {<br>    public static void main(String[] args){<br>    int arr[]={78,56,13,98,105};</p>
+<pre><code>    System.out.println(&quot;排序前:&quot;);
+    bl(arr);//遍历
+    System.out.println(&quot;排序后:&quot;);
+    maopao(arr);//调用方法来排序
+    bl(arr);//遍历
+&#125;
+
+
+public static void maopao(int arr[])&#123;
+    for (int x=0;x&lt;arr.length-1;x++)&#123;//0,1,2,3循环的次数
+        for (int y=0;y&lt;arr.length-1-x;y++)&#123;//y是角标0,1,2,3,4
+            if(arr[y]&gt;arr[y+1])&#123;//判断:如果前面的元素比后面元素大,将大的元素往后放
+                int temp=arr[y];//交互元素----采用中间变量的方法
+                arr[y]=arr[y+1];
+                arr[y+1]=temp;
+            &#125;
+
+
+        &#125;
+    &#125;
+&#125;
+//遍历数组
+public static void bl(int arr[])&#123;
+    System.out.print(&quot;[&quot;);
+    for (int x=0;x&lt;arr.length;x++)&#123;
+        if (x==arr.length-1)&#123;
+            System.out.println(arr[x]+&quot;]&quot;);
+        &#125; else &#123;
+            System.out.print(arr[x]+&quot;, &quot;);
+        &#125;
+
+    &#125;
+&#125;</code></pre>
+<p>}<br>##五、面向对象<br>面向对象思想概述以及特点<br>思想概述:<br>面向对象是基于面向过程的编程思想<br>特点：<br>1.是一种更符合我们思想习惯的思想<br>2. 可以将复杂的事情简单化<br>3. 将我们从执行者变成了指挥者角色发生了转换<br>Java语言的面向对象特征:<br>封装(encapsulation) 继承(inheritance) 多态(polymorphism)<br>5.1类与对象关系<br>类：是一组相关的属性和行为的集合<br>类—Java中的最基本单元</p>
+<p>对象：是该类事物的具体体现(应该是指定的某个类中具体的事物)<br>类的定义<br>例如：现实世界的事物 属性 人的身高，体重等 行为 人可以学习，吃饭等Java中用class描述事物也是如此</p>
+<p>成员变量: 就是事物的属性</p>
+<p>成员方法: 就是事物的行为 定义类其实就是定义类的成员(成员变量和成员方法)<br>5.2匿名对象<br>匿名对象：就是没有名字的对象。<br>是对象的一种简化表示形式<br>匿名对象的两种使用情况<br>对象调用方法仅仅一次的时候<br>作为实际参数传递<br>5.3封装<br>Java提供一个关键字:private 封装<br>封装概述:是指隐藏对象的属性和实现细节，仅对外提供公共访问方式。<br>封装原则：<br>将不需要对外提供的内容都隐藏起来。<br>把属性隐藏，提供公共方法对其访问。<br>##六、关键字<br>6.1private关键字<br>private关键字：<br>是一个权限修饰符。<br>可以修饰成员(成员变量和成员方法)<br>被private修饰的成员只在本类中才能访问。<br>private最常见的应用：<br>把成员变量用private修饰<br>提供对应的getXxx()/setXxx()方法<br>一个标准的案例的使用\</p>
+<p>6.2this关键字<br>this:代表所在类的对象引用<br>记住：<br>方法被哪个对象调用，this就代表那个对象<br>什么时候使用this呢?<br>局部变量隐藏成员变量<br>举例<br>/*</p>
+<ul>
+<li>将下面的需求写完后进行测试！<br>  编写一个矩形类Rect，包含：<br>  矩形的宽width；矩形的高height。<br>  两个构造方法：<pre><code>  一个带有两个参数的构造方法，用于将width和height属性初化；
+  一个不带参数的构造方法，将矩形初始化为宽和高都为10。</code></pre>
+  两个方法：<pre><code>  求矩形面积的方法area()
+  求矩形周长的方法perimeter()</code></pre>
+</li>
+<li></li>
+<li>*/</li>
+</ul>
+<p>//创建一个矩形类<br>class Rect{<br>    //定义成员变量,并封装private<br>    private int width;<br>    private int height;<br>    public void setWidth(int width){<br>        this.width=width;<br>    }<br>    public int getWidth(){<br>        return width;<br>    }<br>    public void setHeight(int height){<br>        this.height=height;<br>    }<br>    public int getHeight(){<br>        return height;<br>    }<br>    //定义构造方法<br>    public Rect(){//无参数构造</p>
+<pre><code>&#125;
+public Rect(int width,int height)&#123;//有参数构造方法
+    this.width=width;
+    this.height=height;
+&#125;
+
+//创建成员方法
+public  int mainji(int width,int height)&#123;//计算面积
+    return width*height;
+&#125;
+public  int zhouchang(int width,int height)&#123;//计算周长
+    return (width+height)*2;
+&#125;</code></pre>
+<p>}</p>
+<p>//矩形方法测试区<br>public class RectTest {<br>    public static void main(String[] args){<br>        Rect r=new Rect(10,10);//创建一个矩形对象</p>
+<pre><code>   int a= r.mainji(r.getWidth(),r.getHeight());//调用方法算面积
+    System.out.println(&quot;矩形的面积是:&quot;+a);//输出
+    int b=r.zhouchang(r.getWidth(),r.getHeight());//调用方法算周长
+    System.out.println(&quot;矩形的周长是:&quot;+b);//输出周长
+
+&#125;</code></pre>
+<p>}</p>
+<p>ok完结</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/10/%E8%A7%A3%E5%8E%8B%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95%E5%8C%85%E6%8B%AC%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89-zip-%E6%96%87%E4%BB%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">解压一个目录包括子目录中的所有 zip 文件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/10/Spring-boot%E5%B0%8F%E7%99%BD%E7%AC%AC%E4%B8%80%E5%A4%A9-spring%E6%A6%82%E8%BF%B0%E5%92%8C%E7%AE%80%E8%BF%B0/">
+                        <span class="hidden-mobile">Spring boot小白第一天 spring概述和简述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/seashy-dev/hexo-theme-seashy" target="_blank" rel="nofollow noopener"><span>seashy</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证123456号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=744129991"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>京公网安备12345678号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

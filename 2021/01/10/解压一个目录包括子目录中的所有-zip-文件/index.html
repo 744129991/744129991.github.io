@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="744129991">
   <meta name="keywords" content="">
-  <title>我对自己的认识 - Sea</title>
+  <title>解压一个目录包括子目录中的所有 zip 文件 - Sea</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="我对自己的认识">
+            <span class="h2" id="subtitle" title="解压一个目录包括子目录中的所有 zip 文件">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-03 22:17" pubdate>
-        2021年1月3日 晚上
+      <time datetime="2021-01-10 22:14" pubdate>
+        2021年1月10日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      772 字
+      1.1k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      18
        分钟
     </span>
   
@@ -224,12 +224,272 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">我对自己的认识</h1>
+            <h1 style="display: none">解压一个目录包括子目录中的所有 zip 文件</h1>
             
             <div class="markdown-body">
-              <p>总觉得自己是一个无趣且内向的人。好像从小到大身边的所有人都在告诉我，你要学会变得活泼开朗，多说话，脚下的路才会特别好走。</p>
-<p>小时候和家人出门，路上碰见熟人，我不知道该怎么开口打招呼，也分不清该叫什么敬称，逢年过节时也不知道怎么开口说些祝福的话。<br>于是被家人视为不懂事的孩子，总是被说，看别人家的孩子嘴那么甜，多讨人欢心。后来慢慢长大，到了中学，班级里的各种聚餐活动也都通通避之。<br>中学是开始学习编程，每天早上都看一两眼书，有异性坐到了自己身侧，于是一直头死死的盯着窗外，根本不敢看对方一眼。<br>这种内向浸透到我身体里的每一个角落，只喜欢下班后自己一个人待着，无趣的重复着每天的。。<br>生活。也曾尝试着让自己去适应去改变，每次很不情愿地交流后，都会觉得难受无比，也很疲惫，总是在进退两难中纠结，本来就很不开心，慢慢变得更不开心了。<br>你快乐吗，长大后与这个世界的诸多交手。或许大部分人的答案都是否定的吧。<br>我们原本想要更加痛快地生活，可那股杀<br>伐决断的勇气去哪了，被生活消磨殆尽了吗<br>很遗憾，我们终究没有为更自由的未来，冲锋陷阵过。<br>就像我们期待遇见鲸鱼，却从没有出海，甚至没有涉足野生的湖泊<br>周围人的人都在笑，他们始终不相信语言能杀人，用冰冷的语言戳别人的痛处来取乐<br>这些都像一些玻璃渣子，支离破碎，句句伤人<br>也不是每一个家庭都是避风港，我羡慕在温室里的孩子，他们骨子里发出来的自信，是我这辈子学不来的<br>我的父亲没有散文集，他的日记本里，只有给别人干活的日期<br>我的母亲脸上手上已经有了许多皱印<br>从前不理解父亲，为什么不能赚大钱，为什么不能让一家人过上更好的日子，长大后才明白为了我已经拼尽全力了<br>同级的同学不断地秀着爸妈的转账纪律和高端生活，我承认我羡慕了，但我忘不了我之前的时候恨过我父亲没有钱<br>我认为我这个15岁出头的人，应当谦卑一些，<br>每当想要评价什么人的时候切记这个世界上的人并非都具备你禀有的条件。</p>
-<p>以上纯属我一个15岁的孩子个人主观认为，有问题也很正常，毕竟我只有这么大，对于社会经验和家庭问题所能理解的非常有限</p>
+              <p>package unzip;</p>
+<p>import java.io.<em>;<br>import java.nio.charset.Charset;<br>import java.util.</em>;<br>import java.util.concurrent.ConcurrentLinkedQueue;<br>import java.util.zip.ZipEntry;<br>import java.util.zip.ZipFile;</p>
+<p>/**</p>
+<ul>
+<li>@author jeffrey</li>
+<li>@ClassName: UnZip</li>
+<li>@Description: 为偷懒而生，解压一个目录包括子目录中的所有 zip 文件</li>
+<li>@date: 2021/1/9 12:38 上午</li>
+<li>@version:</li>
+<li>@since JDK 1.8</li>
+<li>/</li>
+</ul>
+<p>public class UnZip {</p>
+<pre><code>/**
+ * 用于存放于 zip 文件的安全队列
+ */
+public final static ConcurrentLinkedQueue&lt;File&gt; ZIP_QUEUE = new ConcurrentLinkedQueue&lt;&gt;();
+
+/**
+ * 如 t1 不存活并 zipQueue 为空则修改为 true
+ */
+public static boolean isFlag = false;
+
+/**
+ * 输入流
+ */
+private static final Scanner SCANNER = new Scanner(System.in);
+
+/**
+ * 提供一个工作路径
+ */
+private static String workPath;
+
+/**
+ * 在解压完成后是否删除源文件
+ *      使用 Boolean 包装类进行判断，True / true 为 true，False / false 为 false，其他依然为 false
+ */
+public static String isDelete;
+
+/**
+ * 在解压文件时发生异常的集合
+ *      Key：文件名
+ *      Value：异常对象
+ */
+public static final HashMap&lt;File, Exception&gt; unZipFailedMap = new HashMap&lt;&gt;();
+
+/**
+ * 找到相关的文件数量
+ */
+public static int foundCount = 0;
+
+/**
+ * 成功解压的文件数量
+ */
+public static int succeedCount = 0;
+
+/**
+ * 解压失败的文件数量
+ */
+public static int unZipFailedCount = 0;
+
+/**
+ * 删除失败的文件个数
+ */
+public static int deleteFailedCount = 0;
+
+/**
+ * 删除失败的文件名
+ */
+public static final HashSet&lt;File&gt; deleteFailedNameList = new HashSet&lt;&gt;();
+
+
+public static void main(String[] args) &#123;
+
+    input();
+
+    if (new File(workPath).exists()) &#123;
+
+            Thread t1 = new Thread(new FindZipFile(new File(workPath)));
+            Thread t2 = new Thread(new UnZipFile(ZIP_QUEUE));
+            t1.start();
+            t2.start();
+
+            while (true) &#123;
+                if (!t1.isAlive() &amp;&amp; ZIP_QUEUE.isEmpty()) &#123;
+                    isFlag = true;
+                    if (!t2.isAlive()) &#123;
+                        System.out.println
+                        (
+                                &quot;\n\n\n&quot; +
+                                &quot;共找到了 &quot; + foundCount + &quot; 个文件\n&quot; +
+                                &quot;成功解压了 &quot; + succeedCount + &quot; 个文件\n&quot; +
+                                        unZipFailedCount + &quot; 个文件解压失败，以下是失败原因：&quot;
+                        );
+                        Set&lt;Map.Entry&lt;File, Exception&gt;&gt; failedElement = unZipFailedMap.entrySet();
+                        for (Map.Entry&lt;File, Exception&gt; fileExceptionEntry : failedElement) &#123;
+                            System.out.println(&quot;文件：&quot; + fileExceptionEntry.getKey() + &quot; 异常：&quot; + fileExceptionEntry.getValue());
+                        &#125;
+
+                        if (deleteFailedCount &gt; 0) &#123;
+                            System.out.println(&quot;另外，还有一些文件删除失败，可能是在解压过程中失败了导致它们不被删除，它们是：&quot;);
+                            for (File file : deleteFailedNameList) &#123;
+                                System.out.println(file);
+                            &#125;
+                        &#125;
+
+                        break;
+                    &#125;
+                &#125;
+        &#125;
+    &#125;else&#123;
+        System.out.println(&quot;提供的工作路径不准确&quot;);
+    &#125;
+&#125;
+
+private static void input() &#123;
+    System.out.println(&quot;提供一个工作路径：&quot;);
+    workPath = SCANNER.nextLine();
+
+    System.out.println(&quot;成功解压完成后是否删除源文件（true / false）：&quot;);
+    isDelete = SCANNER.nextLine();
+&#125;</code></pre>
+<p>}</p>
+<p>class UnZipFile extends Thread {<br>    private final ConcurrentLinkedQueue<File> zipQueue;<br>    private static final int  BUFFER_SIZE = 2 * 1024;</p>
+<pre><code>public UnZipFile(ConcurrentLinkedQueue&lt;File&gt; zipQueue) &#123;
+    this.zipQueue = zipQueue;
+&#125;
+
+@Override
+public void run() &#123;
+    do &#123;
+        if (!zipQueue.isEmpty()) &#123;
+            File file = zipQueue.poll();
+            String fileName = file.getName();
+            File destPathName = new File(file.getParent(), fileName.substring(0, fileName.indexOf(&quot;.&quot;)));
+            System.out.println(destPathName.mkdirs());
+            unZip(file, destPathName.toString());
+        &#125;
+    &#125; while (!UnZip.isFlag);
+&#125;
+
+public void unZip(File srcFile, String destDirPath) throws RuntimeException &#123;
+    long start = System.currentTimeMillis();
+    // 开始解压
+    ZipFile zipFile = null;
+    FileOutputStream fos = null;
+    InputStream is = null;
+    try &#123;
+        zipFile = new ZipFile(srcFile, Charset.forName(&quot;GBK&quot;));
+        Enumeration&lt;?&gt; entries = zipFile.entries();
+        while (entries.hasMoreElements()) &#123;
+            ZipEntry entry = (ZipEntry) entries.nextElement();
+            File unZipPathName = new File(entry.getName());
+
+            if (!unZipPathName.isDirectory())&#123;
+                if (unZipPathName.getName().contains(&quot;.zip&quot;)) &#123;
+                    zipQueue.add(new File(srcFile.getParentFile(), unZipPathName.toString()));
+                    System.out.println(&quot;俄罗斯套娃文件：&quot; + unZipPathName);
+                &#125;
+            &#125;
+
+            System.out.println(&quot;解压：&quot; + unZipPathName);
+            // 如果是文件夹，就创建个文件夹
+            if (entry.isDirectory()) &#123;
+                String dirPath = destDirPath + File.separator + entry.getName();
+                File dir = new File(dirPath);
+                if(dir.mkdirs())&#123;
+                    System.out.println(&quot;No need to create&quot;);
+                &#125;
+            &#125; else &#123;
+                // 如果是文件，就先创建一个文件，然后用io流把内容copy过去
+                File targetFile = new File(destDirPath + File.separator + entry.getName());
+                // 保证这个文件的父文件夹必须要存在
+                if(!targetFile.getParentFile().exists())&#123;
+                    if(targetFile.getParentFile().mkdirs())&#123;
+                        System.out.println(&quot;No need to create&quot;);
+                    &#125;
+                &#125;
+                if (targetFile.createNewFile())&#123;
+                    System.out.println(&quot;No need to create&quot;);
+                &#125;
+                // 将压缩文件内容写入到这个文件中
+                is = zipFile.getInputStream(entry);
+                fos = new FileOutputStream(targetFile);
+                int len;
+                byte[] buf = new byte[BUFFER_SIZE];
+                while ((len = is.read(buf)) != -1) &#123;
+                    fos.write(buf, 0, len);
+                &#125;
+                fos.flush();
+                if (Boolean.parseBoolean(UnZip.isDelete))&#123;
+                    if(srcFile.delete())&#123;
+                        System.out.println(&quot;成功删除：&quot; + srcFile);
+                    &#125;else&#123;
+                        UnZip.deleteFailedNameList.add(srcFile);
+                        UnZip.deleteFailedCount++;
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        long end = System.currentTimeMillis();
+        UnZip.succeedCount++;
+        System.out.println(&quot;解压完成，耗时：&quot; + (end - start) +&quot; ms&quot;);
+    &#125; catch (Exception e) &#123;
+        e.printStackTrace();
+        UnZip.unZipFailedCount++;
+        UnZip.unZipFailedMap.put(srcFile, e);
+    &#125; finally &#123;
+        if(zipFile != null)&#123;
+            try &#123;
+                zipFile.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (fos != null)&#123;
+            try &#123;
+                fos.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+        if (is != null)&#123;
+            try &#123;
+                is.close();
+            &#125; catch (IOException e) &#123;
+                e.printStackTrace();
+            &#125;
+        &#125;
+    &#125;
+&#125;</code></pre>
+<p>}</p>
+<p>class FindZipFile extends Thread {<br>    private final File file;</p>
+<pre><code>public FindZipFile(File file) &#123;
+    this.file = file;
+&#125;
+
+@Override
+public void run() &#123;
+    find(file);
+&#125;
+
+public void find(File path)&#123;
+    File[] files = path.listFiles();
+    if (files != null) &#123;
+        for (File file : files) &#123;
+            if (file.isDirectory())&#123;
+                find(file);
+            &#125;else&#123;
+                UnZip.foundCount++;
+                String absolutePath = file.getAbsolutePath();
+                String[] split = absolutePath.split(&quot;\\.&quot;);
+                if (&quot;zip&quot;.equalsIgnoreCase(split[split.length - 1]))&#123;
+                    UnZip.ZIP_QUEUE.add(file);
+                &#125;
+            &#125;
+        &#125;
+
+    &#125;
+
+
+&#125;</code></pre>
+<p>}</p>
 
             </div>
             <hr>
@@ -240,7 +500,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%83%85%E6%84%9F%E8%AF%89%E8%AE%BC/">情感诉讼</a>
+                      <a class="hover-with-bg" href="/tags/java/">java</a>
                     
                   </div>
                 
@@ -253,9 +513,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/10/python%E7%88%AC%E8%99%AB%E8%87%AA%E5%8A%A8%E5%8C%96/">
+                      <a href="/2021/01/10/python2%E5%92%8Cpython3%E7%9A%84%E5%8C%BA%E5%88%AB/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python爬虫自动化</span>
+                        <span class="hidden-mobile">python2和python3的区别</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -263,8 +523,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/03/%E5%85%B3%E4%BA%8E%E7%88%B6%E6%AF%8D/">
-                        <span class="hidden-mobile">关于父母</span>
+                      <a href="/2021/01/10/%E9%80%89%E6%8B%A9%E7%BB%93%E6%9E%84-%E5%88%86%E6%94%AF%E7%BB%93%E6%9E%84-%E5%BE%AA%E7%8E%AF%E7%BB%93%E6%9E%84-%E6%96%B9%E6%B3%95-%E6%95%B0%E7%BB%84-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%85%B3%E9%94%AE%E5%AD%97/">
+                        <span class="hidden-mobile">选择结构 分支结构 循环结构 方法 数组 面向对象 关键字</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

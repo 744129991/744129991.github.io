@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="744129991">
   <meta name="keywords" content="">
-  <title>我对自己的认识 - Sea</title>
+  <title>python2和python3的区别 - Sea</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="我对自己的认识">
+            <span class="h2" id="subtitle" title="python2和python3的区别">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-03 22:17" pubdate>
-        2021年1月3日 晚上
+      <time datetime="2021-01-10 22:16" pubdate>
+        2021年1月10日 晚上
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      772 字
+      1.5k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      17
        分钟
     </span>
   
@@ -224,12 +224,16 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">我对自己的认识</h1>
+            <h1 style="display: none">python2和python3的区别</h1>
             
             <div class="markdown-body">
-              <p>总觉得自己是一个无趣且内向的人。好像从小到大身边的所有人都在告诉我，你要学会变得活泼开朗，多说话，脚下的路才会特别好走。</p>
-<p>小时候和家人出门，路上碰见熟人，我不知道该怎么开口打招呼，也分不清该叫什么敬称，逢年过节时也不知道怎么开口说些祝福的话。<br>于是被家人视为不懂事的孩子，总是被说，看别人家的孩子嘴那么甜，多讨人欢心。后来慢慢长大，到了中学，班级里的各种聚餐活动也都通通避之。<br>中学是开始学习编程，每天早上都看一两眼书，有异性坐到了自己身侧，于是一直头死死的盯着窗外，根本不敢看对方一眼。<br>这种内向浸透到我身体里的每一个角落，只喜欢下班后自己一个人待着，无趣的重复着每天的。。<br>生活。也曾尝试着让自己去适应去改变，每次很不情愿地交流后，都会觉得难受无比，也很疲惫，总是在进退两难中纠结，本来就很不开心，慢慢变得更不开心了。<br>你快乐吗，长大后与这个世界的诸多交手。或许大部分人的答案都是否定的吧。<br>我们原本想要更加痛快地生活，可那股杀<br>伐决断的勇气去哪了，被生活消磨殆尽了吗<br>很遗憾，我们终究没有为更自由的未来，冲锋陷阵过。<br>就像我们期待遇见鲸鱼，却从没有出海，甚至没有涉足野生的湖泊<br>周围人的人都在笑，他们始终不相信语言能杀人，用冰冷的语言戳别人的痛处来取乐<br>这些都像一些玻璃渣子，支离破碎，句句伤人<br>也不是每一个家庭都是避风港，我羡慕在温室里的孩子，他们骨子里发出来的自信，是我这辈子学不来的<br>我的父亲没有散文集，他的日记本里，只有给别人干活的日期<br>我的母亲脸上手上已经有了许多皱印<br>从前不理解父亲，为什么不能赚大钱，为什么不能让一家人过上更好的日子，长大后才明白为了我已经拼尽全力了<br>同级的同学不断地秀着爸妈的转账纪律和高端生活，我承认我羡慕了，但我忘不了我之前的时候恨过我父亲没有钱<br>我认为我这个15岁出头的人，应当谦卑一些，<br>每当想要评价什么人的时候切记这个世界上的人并非都具备你禀有的条件。</p>
-<p>以上纯属我一个15岁的孩子个人主观认为，有问题也很正常，毕竟我只有这么大，对于社会经验和家庭问题所能理解的非常有限</p>
+              <p>#区别<br>  python的3.0版本，常被称为python3000，简称py3k。相对于python的早期版本，这是一个较大的升级为了不带入过多累赘，python3.0在设计的时候没有考虑向下相容。<br>  许多针对早期python版本设计的程序都无法在python3.0上正常执行。为了照顾现有程序，python2.6作为一个过渡版本，基本使用了python2.x的语法和库，同时考虑了向python3.0的迁移，允许使用部分python3.0的语法与函数。<br>  新的python程序建议使用python3.0版本的语法。除非执行环境无法安装python3.0或者程序本身使用了不支持python3.0的第三方库。目前不支持python的第三方库有Twisted，py2exe，PIL等。<br>大多数第三方库都正在努力的兼容python3.0版本。即使无法立即使用python3.0，也建议编写相容的3.0版本python程序，然后使用2.6，2.7来执行。<br>#一、python3.0的一些变化<br>1.print函数<br>  print语句没有了，取而代之的是print()函数。python2.6与python2.7部分的支持这种形式的print语法。在python2.6与2.7里面以下三种形式是等价的</p>
+<p>print “我是菜鸟”<br>print (我是菜鸟) #注意print后边有个空格<br>print(“我是菜鸟”) #print()不能带有其他任何参数<br>然而python2.6实际上已经支持新的print()语法<br>from _future_import print_function<br>print(“我是个菜鸟”,”我好菜啊”,sep=’, ‘)<br>#2.Unicode<br>python2有ASCII str()类型，unicode()是单独的，不是byte类型。现在python3有了Unicode(utf-8)字符串，以及一个字节类：byte和bytearrays。由于python3.x源码文件默认使用utf-8编码，这就使得以下代码合法</p>
+<p>我没女友=’I have no girlfriends’<br>print(我没女友)<br>#3.除法运算<br>ython中的除法相较于其他语言会高端一些有些很复杂的规则，python中的除法有/与//两个运算符。<br>首先说除法，python2.x和大多数语言一样，比如java和c，整数相除结果是一个整数，把小数部分完全忽略掉，浮点数的除法会保留小数点的部分得到的一个浮点数结果。<br>  python3.x中除法就不再这样做了，对于整数间的相除结果也会是浮点数。（这里可以用0/1来理解）<br>  而对于//除法，这种除法叫floor除法，会对除法的结果自动进行一个floor操作，在python2.x和3.x中是一致的。</p>
+<p>#python2.x与3.x<br>-1//2 #输出值是-1<br>注意的是并不是舍弃小数部分，而是执行floor操作，如果要截取小数部分，那么就需要使用math模块的trunc函数。<br>#4.异常<br>在python3中处理异常也轻微改变了，在python3中，我们使用as作为关键词。捕获异常的语法由 except exc,var改为 except exc as var。<br>  使用语法except(exc1,exc2) as var可以同时捕获多种类别的异常。python2.6已经支持这两种语法。<br>·在2.x时代，所有类型的对象都是可以被直接抛出的，在3.x时代只有继承BaseException的对象才可被抛出。<br>·2.x raise语句使用逗号将抛出对象类型和参数分开，3.x取消了这种奇葩写法，直接调用构造函数抛出对象即可。<br>  在2.x时代，异常在代码中除了表示程序错误，还经常做一些普通控制结构应该做的事，在3.x中可以看出，设计者让异常变得更加专一，只有在错误发生的情况下才能用去用异常捕获语句来处理。<br>#5.xrange<br>在python2中xrange()创建迭代对象的用法是非常流行的。比如：for循环或者是列表/集合/字典推导式。<br>  这个表现十分像生成器(比如：“惰性求值”)。但是这个xrange-iterable是无穷的，意味着你可以无限遍历。<br>  由于它的惰性求值，如果你要遍历它多次，xrange()函数比range()函数更快（比如for循环）。尽管如此，对比迭代一次，不建议你迭代多次，因此生成器每次都从头开始。<br>  在python3中，range()是像xrange()那样实现，以至于一个专门的xrange()函数都不再存在（在python3中xrange()会抛出命名异常。<br>#6.八进制字面量表示<br>八进制必须写成0o777，原来的形式0777不能用了；二进制0b111。新增了一个bin()函数用于将一个整数转换成二进制字串。python2.6已经支持这两种语法<br>#7.不等运算符<br>python2.x中不等于 ！=和&lt;&gt;<br>python3.x中不等于只有！=<br>#8.去掉了repr表达式”<br>python2.x中反引号”相当于repr函数的作用<br>python3.x中去掉了”这种写法，只允许repr函数，感觉repr只有debug的时候才用，多数时候还是用str函数来用字符串描述对象。<br>#9.多个模块被改名(根据PEP8)<br>旧名字    新名字<br>_winreg    winreg<br>ConfigParser    configparser<br>copy_reg    copyreg<br>Queue    queue<br>SocketServer    socketserver<br>repr    reprlib<br>  StringIO模块现在被合并到新的io模组内new，md5，gopherlib等模块被删除 。python2.6已经支援新的io模组。<br>  httplibBase，HTTPServer，CGIHTTPServer，SimpleHTTPServer，Cookie，cookerlib被合并到http包内。取消了exec语句只剩下exec()函数。python2.6已经支援exec()函数。<br>#10.数据类型<br>python3.x去除了long类型，现在只有一种整型——int<br>  新增了bytes类型，对应于2.x版本的八位串，定义一个butes字面量方法如下</p>
+<p>b=b’lalala’<br>type(b)<br>#输出&lt;type ‘bytes’&gt;<br>str对象和bytes对象可以使用encode()(str-&gt;bytes)or.decode()(bytes-&gt;str)方法互相转换。</p>
+<p>s=b.decode()<br>b1=s.encode()<br>dict的.keys()、.items和.values()方法返回迭代器，而之前的iterkeys()等函数都被遗弃。同事去掉的还有dict.has_key()，用in替代它吧&gt;_&lt;。</p>
+<p>##总结<br>总之一句话，用python3吧，不要再倔强了！<br>  才开始学习计算机不久，第一次写博客，如果有问题希望大家指正，希望我们能一起学习一起进步。共勉！</p>
 
             </div>
             <hr>
@@ -240,7 +244,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/%E6%83%85%E6%84%9F%E8%AF%89%E8%AE%BC/">情感诉讼</a>
+                      <a class="hover-with-bg" href="/tags/python/">python</a>
                     
                   </div>
                 
@@ -253,9 +257,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/10/python%E7%88%AC%E8%99%AB%E8%87%AA%E5%8A%A8%E5%8C%96/">
+                      <a href="/2021/01/10/Python%E8%AF%BB%E5%8F%96Hbase%E9%9D%99%E6%80%81%E6%95%B0%E6%8D%AE%E5%B9%B6%E7%BB%98%E5%88%B6%E5%A4%9A%E4%B8%AAEcharts%E5%9B%BE/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python爬虫自动化</span>
+                        <span class="hidden-mobile">Python读取Hbase静态数据并绘制多个Echarts图</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -263,8 +267,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/03/%E5%85%B3%E4%BA%8E%E7%88%B6%E6%AF%8D/">
-                        <span class="hidden-mobile">关于父母</span>
+                      <a href="/2021/01/10/%E8%A7%A3%E5%8E%8B%E4%B8%80%E4%B8%AA%E7%9B%AE%E5%BD%95%E5%8C%85%E6%8B%AC%E5%AD%90%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89-zip-%E6%96%87%E4%BB%B6/">
+                        <span class="hidden-mobile">解压一个目录包括子目录中的所有 zip 文件</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
