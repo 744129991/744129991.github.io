@@ -1,0 +1,529 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#DF7401">
+  <meta name="description" content="">
+  <meta name="author" content="744129991">
+  <meta name="keywords" content="">
+  <title>【每日一知】拒绝服务攻击 - Sea</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"744129991.github.io","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#DF7401","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>sea</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://sea-3gkzomd90114852a-1302781314.tcloudbaseapp.com/space/文章背景.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="【每日一知】拒绝服务攻击">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-30 22:24" pubdate>
+        2021年1月30日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      26
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【每日一知】拒绝服务攻击</h1>
+            
+            <div class="markdown-body">
+              <h2 id="拒绝服务攻击"><a href="#拒绝服务攻击" class="headerlink" title="拒绝服务攻击"></a>拒绝服务攻击</h2><p>拒绝服务攻击（英语：denial-of-service attack，简称DoS攻击）亦称洪水攻击，是一种网络攻击手法，其目的在于使目标电脑的网络或系统资源耗尽，使服务暂时中断或停止，导致其正常用户无法访问。<br><img src="https://www.go176.net/content/uploadfile/202004/31eb1588079559.jpg" srcset="/img/loading.gif" alt="sea"><br>当黑客使用网络上两个或以上被攻陷的电脑作为“僵尸”向特定的目标发动“拒绝服务”式攻击时，称为分布式拒绝服务攻击（distributed denial-of-service attack，简称DDoS攻击）。据2014年统计，被确认为大规模DDoS的攻击已达平均每小时28次。[1]DDoS发起者一般针对重要服务和知名网站进行攻击，如银行、信用卡支付网关、甚至根域名服务器等。</p>
+<h3 id="攻击现像"><a href="#攻击现像" class="headerlink" title="攻击现像"></a>攻击现像</h3><p>1、网络异常缓慢（打开文件或访问网站）<br>2、特定网站无法访问<br>3、无法访问任何网站<br>4、垃圾邮件的数量急剧增加<br>5、无线或有线网络连接异常断开<br>6、长时间尝试访问网站或任何互联网服务时被拒绝<br>7、服务器容易断线、卡顿</p>
+<p>拒绝服务的攻击也可能会导致目标计算机同一网络中的其他计算机被攻击，互联网和局域网之间的带宽会被攻击导致大量消耗，不但影响目标计算机，同时也影响局域网中的其他电脑。如果攻击的规模较大，整个地区的网络连接都可能会受到影响。</p>
+<h3 id="攻击方式"><a href="#攻击方式" class="headerlink" title="攻击方式"></a>攻击方式</h3><p>DDoS攻击可以具体分成两种形式：带宽消耗型以及资源消耗型。它们都是透过大量合法或伪造的请求占用大量网络以及器材资源，以达到瘫痪网络以及系统的目的。<br>宽带消耗型攻击<br>DDoS宽带消耗攻击可以分为两个不同的层次；洪泛攻击或放大攻击。洪泛攻击的特点是利用僵尸程序发送大量流量至受损的受害者系统，目的在于堵塞其宽带。放大攻击与其类似，是通过恶意放大流量限制受害者系统的宽带；其特点是利用僵尸程序通过伪造的源IP(即攻击目标IP)向某些存在漏洞的服务器发送请求，服务器在处理请求后向伪造的源IP发送应答，由于这些服务的特殊性导致应答包比请求包更长，因此使用少量的宽带就能使服务器发送大量的应答到目标主机上。<br>UDP洪水攻击（User Datagram Protocol floods）<br>UDP（用户数据报协议）是一种无连接协议，当数据包通过UDP发送时，所有的数据包在发送和接收时不需要进行握手验证。当大量UDP数据包发送给受害系统时，可能会导致带宽饱和从而使得合法服务无法请求访问受害系统。遭受DDoS UDP洪泛攻击时，UDP数据包的目的端口可能是随机或指定的端口，受害系统将尝试处理接收到的数据包以确定本地运行的服务。如果没有应用程序在目标端口运行，受害系统将对源IP发出ICMP数据包，表明“目标端口不可达”。某些情况下，攻击者会伪造源IP地址以隐藏自己，这样从受害系统返回的数据包不会直接回到僵尸主机，而是被发送到被伪造地址的主机。有时UDP洪泛攻击也可能影响受害系统周围的网络连接，这可能导致受害系统附近的正常系统遇到问题。然而，这取决于网络体系结构和线速。<br>ICMP洪水攻击（ICMP floods）<br>ICMP（互联网控制消息协议）洪水攻击是通过向未良好设置的路由器发送广播信息占用系统资源的做法。</p>
+<p>死亡之Ping（ping of death）<br>死亡之Ping是产生超过IP协议能容忍的数据包数，若系统没有检查机制，就会死机。<br>泪滴攻击<br>每个数据要发送前，该数据包都会经过切割，每个小切割都会记录位移的信息，以便重组，但此攻击模式就是捏造位移信息，造成重组时发生问题，造成错误。</p>
+<p>资源消耗型攻击<br>协议分析攻击（SYN flood，SYN洪水）<br>传送控制协议（TCP）同步（SYN）攻击。TCP进程通常包括发送者和接受者之间在数据包发送之前创建的完全信号交换。启动系统发送一个SYN请求，接收系统返回一个带有自己SYN请求的ACK（确认）作为交换。发送系统接着传回自己的ACK来授权两个系统间的通讯。若接收系统发送了SYN数据包，但没接收到ACK，接受者经过一段时间后会再次发送新的SYN数据包。接受系统中的处理器和内存资源将存储该TCP SYN的请求直至超时。DDoS TCP SYN攻击也被称为“资源耗尽攻击”，它利用TCP功能将僵尸程序伪装的TCP SYN请求发送给受害服务器，从而饱和服务处理器资源并阻止其有效地处理合法请求。它专门利用发送系统和接收系统间的三向信号交换来发送大量欺骗性的原IP地址TCP SYN数据包给受害系统。最终，大量TCP SYN攻击请求反复发送，导致受害系统内存和处理器资源耗尽，致使其无法处理任何合法用户的请求。<br>LAND攻击<br>这种攻击方式与SYN floods类似，不过在LAND攻击包中的原地址和目标地址都是攻击对象的IP。这种攻击会导致被攻击的机器死循环，最终耗尽资源而死机。<br>CC攻击（Distributed HTTP flood，分布式HTTP洪水攻击）<br>CC攻击使用代理服务器向受害服务器发送大量貌似合法的请求（通常为HTTP GET)。攻击者创造性地使用代理，利用广泛可用的免费代理服务器发动DDoS攻击。许多免费代理服务器支持匿名，这使追踪变得非常困难。<br>2004年，一位匿名为KiKi的中国黑客开发了一种用于发送HTTP请求的DDoS攻击工具以攻击名为“Collapsar”的NSFOCUS防火墙，因此该黑客工具被称为“Challenge Collapsar”（挑战黑洞，简称CC），这类攻击被称作“CC攻击”。</p>
+<h2 id="僵尸网络攻击"><a href="#僵尸网络攻击" class="headerlink" title="僵尸网络攻击"></a>僵尸网络攻击</h2><p>僵尸网络是指大量被命令与控制（C&amp;C）服务器所控制的互联网主机群。攻击者传播恶意软件并组成自己的僵尸网络。僵尸网络难于检测的原因是，僵尸主机只有在执行特定指令时才会与服务器进行通讯，使得它们隐蔽且不易察觉。僵尸网络根据网络通讯协议的不同分为IRC、HTTP或P2P类等。</p>
+<h2 id="应用程序级洪水攻击（Application-level-floods）"><a href="#应用程序级洪水攻击（Application-level-floods）" class="headerlink" title="应用程序级洪水攻击（Application level floods）"></a>应用程序级洪水攻击（Application level floods）</h2><p>与前面叙说的攻击方式不同，应用程序级洪水攻击主要是针对应用软件层的，也就是高于OSI的。它同样是以大量消耗系统资源为目的，通过向IIS这样的网络服务程序提出无节制的资源申请来破坏正常的网络服务。</p>
+<h2 id="防御方式"><a href="#防御方式" class="headerlink" title="防御方式"></a>防御方式</h2><p>拒绝服务攻击的防御方式通常为入侵检测，流量过滤和多重验证，旨在堵塞网络带宽的流量将被过滤，而正常的流量可正常通过。</p>
+<h3 id="防火墙"><a href="#防火墙" class="headerlink" title="防火墙"></a>防火墙</h3><p>防火墙可以设置规则，例如允许或拒绝特定通讯协议，端口或IP地址。当攻击从少数不正常的IP地址发出时，可以简单的使用拒绝规则阻止一切从攻击源IP发出的通信。</p>
+<p>复杂攻击难以用简单规则来阻止，例如80端口（网页服务）遭受攻击时不可能拒绝端口所有的通信，因为其同时会阻止合法流量。此外，防火墙可能处于网络架构中过后的位置，路由器可能在恶意流量达到防火墙前即被攻击影响。然而，防火墙能有效地防止用户从启动防火墙后的计算机发起攻击。<br>交换机<br>大多数交换机有一定的速度限制和访问控制能力。有些交换机提供自动速度限制、流量整形、后期连接、深度包检测和假IP过滤功能，可以检测并过滤拒绝服务攻击。例如SYN洪水攻击可以通过后期连接加以预防。基于内容的攻击可以利用深度包检测阻止。</p>
+<h2 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h2><p>和交换机类似，路由器也有一定的速度限制和访问控制能力，而大多数路由器很容易受到攻击影响。<br>黑洞引导<br>黑洞引导指将所有受攻击计算机的通信全部发送至一个“黑洞”（空接口或不存在的计算机地址）或者有足够能力处理洪流的网络设备商，以避免网络受到较大影响。</p>
+<h2 id="流量清洗"><a href="#流量清洗" class="headerlink" title="流量清洗"></a>流量清洗</h2><p>当流量被送到DDoS防护清洗中心时，通过采用抗DDoS软件处理，将正常流量和恶意流量区分开。正常的流量则回注回客户网站。这样一来可站点能够保持正常的运作，处理真实用户访问网站带来的合法流量。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB/">拒绝服务攻击</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/30/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E7%9F%A5%E3%80%91%E5%8F%8D%E7%89%A9%E8%B4%A8-anti-matter/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">【每日一知】反物质 (anti matter)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/30/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E7%9F%A5%E3%80%91%E8%B4%B9%E6%9B%BC%E5%AD%A6%E4%B9%A0%E6%B3%95/">
+                        <span class="hidden-mobile">【每日一知】费曼学习法</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+  <div class="disqus" style="width:100%">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+      var disqus_config = function() {
+        this.page.url = 'https://744129991.github.io/2021/01/30/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E7%9F%A5%E3%80%91%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB/';
+        this.page.identifier = '/2021/01/30/%E3%80%90%E6%AF%8F%E6%97%A5%E4%B8%80%E7%9F%A5%E3%80%91%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1%E6%94%BB%E5%87%BB/';
+      };
+      Fluid.utils.waitElementVisible('disqus_thread', function () {
+        var d = document, s = d.createElement('script');
+        s.src = '//' + '' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', new Date());
+        (d.head || d.body).appendChild(s);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the
+      <a target="_blank" href="https://disqus.com/?ref_noscript" rel="nofollow noopener noopener">comments powered by Disqus.</a>
+    </noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/seashy-dev/hexo-theme-seashy" target="_blank" rel="nofollow noopener"><span>seashy</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+  <!-- 备案信息 -->
+  <div class="beian">
+    <span>
+      <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+        京ICP证744129991号
+      </a>
+    </span>
+    
+      
+        <span>
+          <a
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=744129991"
+            rel="nofollow noopener"
+            class="beian-police"
+            target="_blank"
+          >
+            
+              <span style="visibility: hidden; width: 0">|</span>
+              <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon"/>
+            
+            <span>京公网安备744129991号</span>
+          </a>
+        </span>
+      
+    
+  </div>
+
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
